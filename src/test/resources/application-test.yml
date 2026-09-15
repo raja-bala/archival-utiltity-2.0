@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:archivaltest;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: embedded
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema-audit.sql,classpath:test-schema.sql
+
+archival:
+  runner:
+    enabled: false
+  retention-years: 5
+  window-months: 4
+  delete-enabled: true
+  dry-run-default: false
